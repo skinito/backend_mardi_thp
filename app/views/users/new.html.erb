@@ -1,0 +1,82 @@
+
+<% if false %>
+<form action="/user/create" method="post">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  Ton nom d'utilisateur:
+  <br>
+  <input type="text" name="username" value="">
+  <br>
+  ton email :
+  <br>
+  <input type="text" name="email" value="">
+  <br>
+  Bio:
+  <br>
+  <textarea name="bio" rows="8" cols="80"></textarea>
+  <input type="submit" value="je valide">
+</form>
+<% end %>
+
+<% if false %>
+
+<div class="mx-auto mt-5 d-block p-2 px-4 bg-dark text-white rounded" style="width: 400px;">
+  <h3 class="text-center">Création d'un nouvelle utilisateur</h3>
+  <br>
+  <%= form_tag url_for(action: 'create'), method: "post" do  %>
+  <div class="form-group">
+    <%= label_tag 'utilisateur : ' %>
+    <br>
+    <%= text_field_tag 'username' %>
+    <br>
+  </div>
+  <div class="form-group">
+    <br>
+    <%= label_tag 'email : ' %>
+    <br>
+    <%= text_field_tag 'email'%>
+    <br>
+  </div>
+  <div class="form-group">
+    <br>
+    <%= label_tag 'Bio' %>
+    <br>
+    <%= text_area_tag 'bio' %>
+    <br>
+  </div>
+  <br>
+  <%= submit_tag "Valide" %>
+  <% end %>
+<% end %>
+
+<div class="mx-auto mt-5 d-block p-2 px-4 bg-dark text-white rounded" style="width: 400px;">
+  <h3 class="text-center">Création d'un nouvelle utilisateur</h3>
+  <br>
+  <%= form_for @user, url: {action: "create"}, class: "form-inline" do |f| %>
+
+  <div class="form-group">
+    <label>Utilisateur :</label>
+    <%= f.text_field :username, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <label>Email :</label>
+    <%= f.text_field :email, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <label>Biographie :</label>
+    <%= f.text_area :bio, class: "form-control"%>
+  </div>
+
+  <%= f.submit class:"btn btn-success", value:"Let's go" %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
